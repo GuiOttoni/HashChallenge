@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Discount]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Percent] FLOAT NOT NULL
+)

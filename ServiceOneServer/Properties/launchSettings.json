@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ServiceOneServer": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
