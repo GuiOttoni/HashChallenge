@@ -63,7 +63,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Product.sql" />
     <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Tables\Discount.sql" />
     <Build Include="Procedures\Get_ProductById.sql" />
+    <Build Include="Procedures\Get_UserById.sql" />
   </ItemGroup>
 </Project>
