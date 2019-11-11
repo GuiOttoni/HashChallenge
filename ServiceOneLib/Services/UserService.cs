@@ -1,5 +1,5 @@
 ﻿using ServiceOneLib.Database.Interface;
-using ServiceOneLib.IMPL.Interface;
+using ServiceOneLib.Services.Interface;
 using ServiceOneLib.Util;
 using Sone;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceOneLib.IMPL
+namespace ServiceOneLib.Services
 {
     public class UserService : BaseService, IUserService 
     {

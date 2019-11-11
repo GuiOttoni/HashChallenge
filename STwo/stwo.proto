@@ -1,4 +1,4 @@
-﻿// Copyright 2015 gRPC authors.
+// Copyright 2015 gRPC authors.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,14 +15,14 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "io.grpc.examples.stwo";
-option java_outer_classname = "stwo";
-option objc_class_prefix = "STWO";
+option java_package = "io.grpc.a.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
 
-package stwo;
+package helloworld;
 
 // The greeting service definition.
-service ServiceTwo {
+service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {}
   rpc SayBye(ByeRequest) returns (ByeReply){}

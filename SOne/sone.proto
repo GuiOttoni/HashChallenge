@@ -40,10 +40,12 @@ message Product{
     int32 price_in_cents = 2;
     string title = 3;
     string description = 4;
-    message Discount {
-        float pct = 5;
-        int32 value_in_cents = 6;
-    }
+	Discount discount = 5;
+}
+
+message Discount {
+        float pct = 1;
+        int32 value_in_cents = 2;
 }
 
 message User{

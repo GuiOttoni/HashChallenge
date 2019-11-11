@@ -33,11 +33,18 @@ namespace ServiceOneClient
                 channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
                 var client = new ServiceOne.ServiceOneClient(channel);
-                String id = Console.ReadLine();
 
-                var reply = client.ProductDiscount(new ProductRequest { ProductId = id, UserId = id });
+                Console.WriteLine("Product id:");
+                string _productId = Console.ReadLine();
 
-                Console.WriteLine($"Greeting: {reply.Id}, {reply.Title} ");
+                Console.WriteLine("User Id:");
+                string _userId = Console.ReadLine();
+
+                var reply = client.ProductDiscount(new ProductRequest { ProductId = _productId, UserId = _userId });
+
+                Console.WriteLine($"Product Id: {reply.Id} \n Product Name: {reply.Title} \n Product Description: {reply.Description} \n " +
+                    $"Product Price: { reply.PriceInCents/100 } \n Product Discount PCT: {reply.Discount.Pct} \n Product Discount price: {(float)reply.Discount.ValueInCents/100}" +
+                    $"\n Product Value with discount: {reply.PriceInCents - reply.Discount.ValueInCents}");
       
                 Console.WriteLine("Press ctrl+c to exit...");
 

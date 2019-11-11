@@ -1,6 +1,6 @@
 ﻿using ServiceOneLib.Database.Interface;
 
-namespace ServiceOneLib.IMPL
+namespace ServiceOneLib.Services
 {
     public class BaseService
     {

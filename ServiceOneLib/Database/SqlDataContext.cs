@@ -66,7 +66,8 @@ namespace ServiceOneLib.Database
                 CommandType = System.Data.CommandType.StoredProcedure
             };
 
-            CreateParameters(command, keyValuePairs);
+            if(keyValuePairs != null)
+                CreateParameters(command, keyValuePairs);
 
             return command;
         }

@@ -19,8 +19,8 @@ using Grpc.Core;
 using Microsoft.Extensions.DependencyInjection;
 using ServiceOneLib.Database;
 using ServiceOneLib.Database.Interface;
-using ServiceOneLib.IMPL;
-using ServiceOneLib.IMPL.Interface;
+using ServiceOneLib.Services;
+using ServiceOneLib.Services.Interface;
 using ServiceOneServer.IMPL;
 using Sone;
 
