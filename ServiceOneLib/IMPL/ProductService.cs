@@ -1,4 +1,6 @@
-﻿using ServiceOneLib.IMPL.Interface;
+﻿using ServiceOneLib.Database.Interface;
+using ServiceOneLib.IMPL.Interface;
+using ServiceOneLib.Util;
 using Sone;
 using System;
 using System.Collections.Generic;
@@ -7,13 +9,20 @@ using System.Threading.Tasks;
 
 namespace ServiceOneLib.IMPL
 {
-    public class ProductService : IProductService
+    public class ProductService : BaseService,IProductService
     {
-        public async Task<Product> GetProduct(string ProductId, string UserId)
+        public ProductService(ISqlDataContext _dataContext)
         {
-            //TODO: Get the product from database with ProductId and UserId
-            //TODO: Apply the rules of discount
-            return default;
+            dataContext = _dataContext;
         }
+
+        public async Task<Product> GetProduct(string ProductId)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>(){ { "ProductId", ProductId } };
+
+            return await dataContext.SelectSingleAsync<Product>(StoredProcedure.GetProduct); ;
+        }
+
+
     }
 }

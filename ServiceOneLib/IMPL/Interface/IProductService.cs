@@ -8,6 +8,7 @@ namespace ServiceOneLib.IMPL.Interface
 {
     public interface IProductService
     {
-        Task<Product> GetProduct(string ProductId, string UserId);
+        Task<Product> GetProduct(string ProductId);
+
     }
 }

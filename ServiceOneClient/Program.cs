@@ -35,9 +35,9 @@ namespace ServiceOneClient
                 var client = new ServiceOne.ServiceOneClient(channel);
                 String id = Console.ReadLine();
 
-                var reply = client.ProductDiscount(new ProductRequest { IdProduto = id });
+                var reply = client.ProductDiscount(new ProductRequest { ProductId = id, UserId = id });
 
-                Console.WriteLine($"Greeting: {reply.IdProduto}, {reply.Title} ");
+                Console.WriteLine($"Greeting: {reply.Id}, {reply.Title} ");
       
                 Console.WriteLine("Press ctrl+c to exit...");
 

@@ -1,4 +1,5 @@
-﻿using ServiceOneLib.Database.Interface;
+﻿using Google.Protobuf.WellKnownTypes;
+using ServiceOneLib.Database.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,7 +17,7 @@ namespace ServiceOneLib.Database
         public SqlDataContext()
         {
             //Pegar connection string direto do settings;
-            ConnectionString = "";
+            ConnectionString = "Data Source=172.26.172.51;Initial Catalog=hash;User ID=sa;Password=@teste123;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         }
 
         public async Task<IEnumerable<T>> SelectListAsync<T>(string procedure, Dictionary<string, object> parameters = null)
@@ -31,7 +32,7 @@ namespace ServiceOneLib.Database
                     result = await QueryToList<T>(dataReader);
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 //add log
             }
@@ -44,14 +45,13 @@ namespace ServiceOneLib.Database
             try
             {
                 using var connection = new SqlConnection(ConnectionString);
+                await connection.OpenAsync();
                 using SqlCommand command = CreateCommand(connection, procedure, parameters);
                 using SqlDataReader dataReader = await command.ExecuteReaderAsync();
-                {
-                    var result = await QueryToList<T>(dataReader);
-                    return result.FirstOrDefault();
-                }
+                var result = await QueryToList<T>(dataReader);
+                return result.FirstOrDefault();
             }
-            catch
+            catch (Exception ex)
             {
                 //add log
             }
@@ -79,7 +79,7 @@ namespace ServiceOneLib.Database
 
         private async Task<List<T>> QueryToList<T>(SqlDataReader reader)
         {
-            Type dataType = GetType<T>();
+            System.Type dataType = GetType<T>();
             
             List<T> result = new List<T>();
 
@@ -104,12 +104,12 @@ namespace ServiceOneLib.Database
             return result;
         }
 
-        private static Type GetType<T>()
+        private static System.Type GetType<T>()
         {
             return typeof(T);
         }
 
-        private static object CreateInstance(Type genericType)
+        private static object CreateInstance(System.Type genericType)
         {
             var instance = Activator.CreateInstance(genericType);
             return instance;
@@ -125,7 +125,12 @@ namespace ServiceOneLib.Database
 
         private static void SetValue<T>(T instance, PropertyInfo prop, object value)
         {
-            if (!(value is null) && value.GetType() != DBNull.Value.GetType())
+            if (value.GetType() == typeof(DateTime))
+            {
+                DateTime dateTime = (DateTime)value;
+                prop.SetValue(instance, Timestamp.FromDateTime(dateTime.ToUniversalTime()));
+            }
+            else if (!(value is null) && value.GetType() != DBNull.Value.GetType())
             {
                 prop.SetValue(instance, value);
             }

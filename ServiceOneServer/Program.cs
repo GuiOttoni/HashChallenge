@@ -33,15 +33,11 @@ namespace GreeterServer
 
         public static void Main(string[] args)
         {
-            //setup our DI
             var serviceProvider = new ServiceCollection()
                 .AddTransient<ISqlDataContext, SqlDataContext>()
                 .AddTransient<IProductService, ProductService>()
+                .AddTransient<IUserService, UserService>()
                 .BuildServiceProvider();
-
-            //do the actual work here
-            //var bar = serviceProvider.GetService<IBarService>();
-            //bar.DoSomeRealWork();
 
             Server server = default;
 
@@ -49,7 +45,9 @@ namespace GreeterServer
                 {
                     server = new Server
                     {
-                        Services = { ServiceOne.BindService(new ServiceOneImpl()) },
+                        //TODO: não consigo fazer automatico a injeção?
+                        Services = { ServiceOne.BindService(new ServiceOneImpl(serviceProvider.GetService<IProductService>(), 
+                        serviceProvider.GetService<IUserService>())) },
                         Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
                     };
                     server.Start();

@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using ServiceOneLib.IMPL.Interface;
 using Sone;
 using System.Threading.Tasks;
 
@@ -6,16 +7,30 @@ namespace ServiceOneServer.IMPL
 {
     public class ServiceOneImpl : ServiceOne.ServiceOneBase
     {
+        private readonly IUserService userService;
+        private readonly IProductService productService;
+
+        public ServiceOneImpl()
+        {
+        }
+
+        public ServiceOneImpl(IProductService _productService, IUserService _userService) : base()
+        {
+            userService = _userService;
+            productService = _productService;
+        }
 
         // Server side handler of the SayHello RPC
-        public override Task<Product> ProductDiscount(ProductRequest request, ServerCallContext context)
+        public override async Task<Product> ProductDiscount(ProductRequest request, ServerCallContext context)
         {
-            //GET PRODUCT FROM DATABASE
+            User _user = await userService.GetUser(request.UserId);
+            Product _product = await productService.GetProduct(request.ProductId);
+            
             //SET PRODUCT DISCOUNT
 
-            return Task.FromResult(new Product
+            return await Task.FromResult(new Product
             {
-                IdProduto = request.IdProduto,
+                Id = request.ProductId,
                 Title = "teste"
             });
         }
