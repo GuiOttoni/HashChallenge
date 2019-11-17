@@ -17,7 +17,7 @@ namespace ServiceOneLib.Database
         public SqlDataContext()
         {
             //Pegar connection string direto do settings;
-            ConnectionString = "Data Source=172.26.172.51;Initial Catalog=hash;User ID=sa;Password=@teste123;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            ConnectionString = "Data Source=10.0.75.1;Initial Catalog=hash;User ID=sa;Password=teste@123;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         }
 
         public async Task<IEnumerable<T>> SelectListAsync<T>(string procedure, Dictionary<string, object> parameters = null)

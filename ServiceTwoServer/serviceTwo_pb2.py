@@ -20,26 +20,19 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='STwo',
   syntax='proto3',
   serialized_options=_b('\n\016io.grpc.a.stwoB\004stwoP\001\242\002\004SWTO'),
-  serialized_pb=_b('\n\x10serviceTwo.proto\x12\x04STwo\"\x1c\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1d\n\nHelloReply\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1a\n\nByeRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1b\n\x08\x42yeReply\x12\x0f\n\x07message\x18\x01 \x01(\t2k\n\nServiceTwo\x12/\n\x05Teste\x12\x12.STwo.HelloRequest\x1a\x10.STwo.HelloReply\"\x00\x12,\n\x06SayBye\x12\x10.STwo.ByeRequest\x1a\x0e.STwo.ByeReply\"\x00\x42\x1f\n\x0eio.grpc.a.stwoB\x04stwoP\x01\xa2\x02\x04SWTOb\x06proto3')
+  serialized_pb=_b('\n\x10serviceTwo.proto\x12\x04STwo\"\x11\n\x0fProductsRequest\"7\n\x10ProductsResponse\x12#\n\x0clistProducts\x18\x01 \x03(\x0b\x32\r.STwo.Product\"s\n\x07Product\x12\n\n\x02Id\x18\x01 \x01(\t\x12\x16\n\x0eprice_in_cents\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12 \n\x08\x64iscount\x18\x05 \x01(\x0b\x32\x0e.STwo.Discount\"/\n\x08\x44iscount\x12\x0b\n\x03pct\x18\x01 \x01(\x02\x12\x16\n\x0evalue_in_cents\x18\x02 \x01(\x05\x32L\n\nServiceTwo\x12>\n\x0bGetProducts\x12\x15.STwo.ProductsRequest\x1a\x16.STwo.ProductsResponse\"\x00\x42\x1f\n\x0eio.grpc.a.stwoB\x04stwoP\x01\xa2\x02\x04SWTOb\x06proto3')
 )
 
 
 
 
-_HELLOREQUEST = _descriptor.Descriptor(
-  name='HelloRequest',
-  full_name='STwo.HelloRequest',
+_PRODUCTSREQUEST = _descriptor.Descriptor(
+  name='ProductsRequest',
+  full_name='STwo.ProductsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='STwo.HelloRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -53,21 +46,21 @@ _HELLOREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=26,
-  serialized_end=54,
+  serialized_end=43,
 )
 
 
-_HELLOREPLY = _descriptor.Descriptor(
-  name='HelloReply',
-  full_name='STwo.HelloReply',
+_PRODUCTSRESPONSE = _descriptor.Descriptor(
+  name='ProductsResponse',
+  full_name='STwo.ProductsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='message', full_name='STwo.HelloReply.message', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='listProducts', full_name='STwo.ProductsResponse.listProducts', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -83,22 +76,50 @@ _HELLOREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=85,
+  serialized_start=45,
+  serialized_end=100,
 )
 
 
-_BYEREQUEST = _descriptor.Descriptor(
-  name='ByeRequest',
-  full_name='STwo.ByeRequest',
+_PRODUCT = _descriptor.Descriptor(
+  name='Product',
+  full_name='STwo.Product',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='STwo.ByeRequest.name', index=0,
+      name='Id', full_name='STwo.Product.Id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='price_in_cents', full_name='STwo.Product.price_in_cents', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='title', full_name='STwo.Product.title', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='STwo.Product.description', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='discount', full_name='STwo.Product.discount', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -114,22 +135,29 @@ _BYEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=87,
-  serialized_end=113,
+  serialized_start=102,
+  serialized_end=217,
 )
 
 
-_BYEREPLY = _descriptor.Descriptor(
-  name='ByeReply',
-  full_name='STwo.ByeReply',
+_DISCOUNT = _descriptor.Descriptor(
+  name='Discount',
+  full_name='STwo.Discount',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='message', full_name='STwo.ByeReply.message', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='pct', full_name='STwo.Discount.pct', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value_in_cents', full_name='STwo.Discount.value_in_cents', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -145,43 +173,45 @@ _BYEREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=115,
-  serialized_end=142,
+  serialized_start=219,
+  serialized_end=266,
 )
 
-DESCRIPTOR.message_types_by_name['HelloRequest'] = _HELLOREQUEST
-DESCRIPTOR.message_types_by_name['HelloReply'] = _HELLOREPLY
-DESCRIPTOR.message_types_by_name['ByeRequest'] = _BYEREQUEST
-DESCRIPTOR.message_types_by_name['ByeReply'] = _BYEREPLY
+_PRODUCTSRESPONSE.fields_by_name['listProducts'].message_type = _PRODUCT
+_PRODUCT.fields_by_name['discount'].message_type = _DISCOUNT
+DESCRIPTOR.message_types_by_name['ProductsRequest'] = _PRODUCTSREQUEST
+DESCRIPTOR.message_types_by_name['ProductsResponse'] = _PRODUCTSRESPONSE
+DESCRIPTOR.message_types_by_name['Product'] = _PRODUCT
+DESCRIPTOR.message_types_by_name['Discount'] = _DISCOUNT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-HelloRequest = _reflection.GeneratedProtocolMessageType('HelloRequest', (_message.Message,), {
-  'DESCRIPTOR' : _HELLOREQUEST,
+ProductsRequest = _reflection.GeneratedProtocolMessageType('ProductsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PRODUCTSREQUEST,
   '__module__' : 'serviceTwo_pb2'
-  # @@protoc_insertion_point(class_scope:STwo.HelloRequest)
+  # @@protoc_insertion_point(class_scope:STwo.ProductsRequest)
   })
-_sym_db.RegisterMessage(HelloRequest)
+_sym_db.RegisterMessage(ProductsRequest)
 
-HelloReply = _reflection.GeneratedProtocolMessageType('HelloReply', (_message.Message,), {
-  'DESCRIPTOR' : _HELLOREPLY,
+ProductsResponse = _reflection.GeneratedProtocolMessageType('ProductsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PRODUCTSRESPONSE,
   '__module__' : 'serviceTwo_pb2'
-  # @@protoc_insertion_point(class_scope:STwo.HelloReply)
+  # @@protoc_insertion_point(class_scope:STwo.ProductsResponse)
   })
-_sym_db.RegisterMessage(HelloReply)
+_sym_db.RegisterMessage(ProductsResponse)
 
-ByeRequest = _reflection.GeneratedProtocolMessageType('ByeRequest', (_message.Message,), {
-  'DESCRIPTOR' : _BYEREQUEST,
+Product = _reflection.GeneratedProtocolMessageType('Product', (_message.Message,), {
+  'DESCRIPTOR' : _PRODUCT,
   '__module__' : 'serviceTwo_pb2'
-  # @@protoc_insertion_point(class_scope:STwo.ByeRequest)
+  # @@protoc_insertion_point(class_scope:STwo.Product)
   })
-_sym_db.RegisterMessage(ByeRequest)
+_sym_db.RegisterMessage(Product)
 
-ByeReply = _reflection.GeneratedProtocolMessageType('ByeReply', (_message.Message,), {
-  'DESCRIPTOR' : _BYEREPLY,
+Discount = _reflection.GeneratedProtocolMessageType('Discount', (_message.Message,), {
+  'DESCRIPTOR' : _DISCOUNT,
   '__module__' : 'serviceTwo_pb2'
-  # @@protoc_insertion_point(class_scope:STwo.ByeReply)
+  # @@protoc_insertion_point(class_scope:STwo.Discount)
   })
-_sym_db.RegisterMessage(ByeReply)
+_sym_db.RegisterMessage(Discount)
 
 
 DESCRIPTOR._options = None
@@ -192,25 +222,16 @@ _SERVICETWO = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=144,
-  serialized_end=251,
+  serialized_start=268,
+  serialized_end=344,
   methods=[
   _descriptor.MethodDescriptor(
-    name='Teste',
-    full_name='STwo.ServiceTwo.Teste',
+    name='GetProducts',
+    full_name='STwo.ServiceTwo.GetProducts',
     index=0,
     containing_service=None,
-    input_type=_HELLOREQUEST,
-    output_type=_HELLOREPLY,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SayBye',
-    full_name='STwo.ServiceTwo.SayBye',
-    index=1,
-    containing_service=None,
-    input_type=_BYEREQUEST,
-    output_type=_BYEREPLY,
+    input_type=_PRODUCTSREQUEST,
+    output_type=_PRODUCTSRESPONSE,
     serialized_options=None,
   ),
 ])

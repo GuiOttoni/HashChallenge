@@ -58,12 +58,12 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
-    <Folder Include="Procedures" />
+    <Folder Include="dbo\Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Product.sql" />
     <Build Include="dbo\Tables\User.sql" />
-    <Build Include="Procedures\Get_ProductById.sql" />
-    <Build Include="Procedures\Get_UserById.sql" />
+    <Build Include="dbo\Procedures\Get_ProductById.sql" />
+    <Build Include="dbo\Procedures\Get_UserById.sql" />
   </ItemGroup>
 </Project>

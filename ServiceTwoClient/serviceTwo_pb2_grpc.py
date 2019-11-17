@@ -5,8 +5,8 @@ import serviceTwo_pb2 as serviceTwo__pb2
 
 
 class ServiceTwoStub(object):
-  """The greeting service definition.
-  """
+  # missing associated documentation comment in .proto file
+  pass
 
   def __init__(self, channel):
     """Constructor.
@@ -14,30 +14,18 @@ class ServiceTwoStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.Teste = channel.unary_unary(
-        '/STwo.ServiceTwo/Teste',
-        request_serializer=serviceTwo__pb2.HelloRequest.SerializeToString,
-        response_deserializer=serviceTwo__pb2.HelloReply.FromString,
-        )
-    self.SayBye = channel.unary_unary(
-        '/STwo.ServiceTwo/SayBye',
-        request_serializer=serviceTwo__pb2.ByeRequest.SerializeToString,
-        response_deserializer=serviceTwo__pb2.ByeReply.FromString,
+    self.GetProducts = channel.unary_unary(
+        '/STwo.ServiceTwo/GetProducts',
+        request_serializer=serviceTwo__pb2.ProductsRequest.SerializeToString,
+        response_deserializer=serviceTwo__pb2.ProductsResponse.FromString,
         )
 
 
 class ServiceTwoServicer(object):
-  """The greeting service definition.
-  """
+  # missing associated documentation comment in .proto file
+  pass
 
-  def Teste(self, request, context):
-    """Sends a greeting
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def SayBye(self, request, context):
+  def GetProducts(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -47,15 +35,10 @@ class ServiceTwoServicer(object):
 
 def add_ServiceTwoServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'Teste': grpc.unary_unary_rpc_method_handler(
-          servicer.Teste,
-          request_deserializer=serviceTwo__pb2.HelloRequest.FromString,
-          response_serializer=serviceTwo__pb2.HelloReply.SerializeToString,
-      ),
-      'SayBye': grpc.unary_unary_rpc_method_handler(
-          servicer.SayBye,
-          request_deserializer=serviceTwo__pb2.ByeRequest.FromString,
-          response_serializer=serviceTwo__pb2.ByeReply.SerializeToString,
+      'GetProducts': grpc.unary_unary_rpc_method_handler(
+          servicer.GetProducts,
+          request_deserializer=serviceTwo__pb2.ProductsRequest.FromString,
+          response_serializer=serviceTwo__pb2.ProductsResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

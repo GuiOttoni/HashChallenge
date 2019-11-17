@@ -25,7 +25,7 @@ namespace ServiceOneApi.Controllers
         [HttpGet("{productid}/{userid}")]
         public async Task<ActionResult<Product>> Get(string productid, string userid)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:50051");
+            var channel = GrpcChannel.ForAddress("https://172.17.0.1:50051");
             var client = new ServiceOne.ServiceOneClient(channel);
 
             var reply = (await Task.Run(() => { return client.ProductDiscount(new ProductRequest { ProductId = productid, UserId = userid }); }));

@@ -21,27 +21,28 @@ option objc_class_prefix = "SWTO";
 
 package STwo;
 
-// The greeting service definition.
 service ServiceTwo {
-  // Sends a greeting
-  rpc Teste(HelloRequest) returns (HelloReply) {}
-  rpc SayBye(ByeRequest) returns (ByeReply){}
+  rpc GetProducts(ProductsRequest) returns (ProductsResponse) {}
 }
 
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
+message ProductsRequest{
+
 }
 
-// The response message containing the greetings
-message HelloReply {
-  string message = 1;
+message ProductsResponse {
+  repeated Product listProducts = 1;
 }
 
-message ByeRequest{
-  string name = 1;
+message Product{
+    string Id= 1;
+    int32 price_in_cents = 2;
+    string title = 3;
+    string description = 4;
+	Discount discount = 5;
 }
 
-message ByeReply{
-        string message = 1;
+message Discount {
+        float pct = 1;
+        int32 value_in_cents = 2;
 }
+

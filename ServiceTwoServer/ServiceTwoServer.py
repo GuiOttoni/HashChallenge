@@ -23,16 +23,17 @@ import serviceTwo_pb2
 import serviceTwo_pb2_grpc
 
 
-class Greeter(serviceTwo_pb2_grpc.ServiceTwoServicer):
+class ServiceTwo(serviceTwo_pb2_grpc.ServiceTwoServicer):
 
-    def Teste(self, request, context):
+    def GetProducts(self, request, context):
         requests.get("")
-        return serviceTwo_pb2.HelloReply(message='testando, %s!' % request.name)
+
+        return serviceTwo_pb2.ProductsResponse(listProducts = [])
 
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    serviceTwo_pb2_grpc.add_ServiceTwoServicer_to_server(Greeter(), server)
+    serviceTwo_pb2_grpc.add_ServiceTwoServicer_to_server(ServiceTwo(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()
