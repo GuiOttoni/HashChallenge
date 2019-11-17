@@ -15,16 +15,16 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "io.grpc.a.helloworld";
-option java_outer_classname = "HelloWorldProto";
-option objc_class_prefix = "HLW";
+option java_package = "io.grpc.a.stwo";
+option java_outer_classname = "stwo";
+option objc_class_prefix = "SWTO";
 
-package helloworld;
+package STwo;
 
 // The greeting service definition.
-service Greeter {
+service ServiceTwo {
   // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc Teste(HelloRequest) returns (HelloReply) {}
   rpc SayBye(ByeRequest) returns (ByeReply){}
 }
 
