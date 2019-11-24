@@ -43,12 +43,14 @@ namespace GreeterServer
 
                 Task.Run(() =>
                 {
+                    
                     server = new Server
                     {
                         //TODO: não consigo fazer automatico a injeção?
                         Services = { ServiceOne.BindService(new ServiceOneImpl(serviceProvider.GetService<IProductService>(), 
                         serviceProvider.GetService<IUserService>())) },
-                        Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
+                        
+                        Ports = { new ServerPort("0.0.0.0", Port, SslServerCredentials.Insecure) }
                     };
                     server.Start();
 
