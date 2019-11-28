@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Hosting;
 
 namespace ServiceOneServerApi
@@ -21,6 +23,15 @@ namespace ServiceOneServerApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.ConfigureKestrel(options =>
+                    {
+                        // This endpoint will use HTTP/2 and HTTPS on port 5001.
+                        options.Listen(IPAddress.Any, 5001, listenOptions =>
+                        {
+                            listenOptions.Protocols = HttpProtocols.Http2;
+                        });
+                    });
+
                     webBuilder.UseStartup<Startup>();
                 });
     }

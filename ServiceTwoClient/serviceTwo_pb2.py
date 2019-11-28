@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='STwo',
   syntax='proto3',
   serialized_options=_b('\n\016io.grpc.a.stwoB\004stwoP\001\242\002\004SWTO'),
-  serialized_pb=_b('\n\x10serviceTwo.proto\x12\x04STwo\"\x11\n\x0fProductsRequest\"7\n\x10ProductsResponse\x12#\n\x0clistProducts\x18\x01 \x03(\x0b\x32\r.STwo.Product\"s\n\x07Product\x12\n\n\x02Id\x18\x01 \x01(\t\x12\x16\n\x0eprice_in_cents\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12 \n\x08\x64iscount\x18\x05 \x01(\x0b\x32\x0e.STwo.Discount\"/\n\x08\x44iscount\x12\x0b\n\x03pct\x18\x01 \x01(\x02\x12\x16\n\x0evalue_in_cents\x18\x02 \x01(\x05\x32L\n\nServiceTwo\x12>\n\x0bGetProducts\x12\x15.STwo.ProductsRequest\x1a\x16.STwo.ProductsResponse\"\x00\x42\x1f\n\x0eio.grpc.a.stwoB\x04stwoP\x01\xa2\x02\x04SWTOb\x06proto3')
+  serialized_pb=_b('\n\x10serviceTwo.proto\x12\x04STwo\"!\n\x0fProductsRequest\x12\x0e\n\x06userId\x18\x01 \x01(\t\"7\n\x10ProductsResponse\x12#\n\x0clistProducts\x18\x01 \x03(\x0b\x32\r.STwo.Product\"s\n\x07Product\x12\n\n\x02Id\x18\x01 \x01(\t\x12\x16\n\x0eprice_in_cents\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12 \n\x08\x64iscount\x18\x05 \x01(\x0b\x32\x0e.STwo.Discount\"/\n\x08\x44iscount\x12\x0b\n\x03pct\x18\x01 \x01(\x02\x12\x16\n\x0evalue_in_cents\x18\x02 \x01(\x05\x32L\n\nServiceTwo\x12>\n\x0bGetProducts\x12\x15.STwo.ProductsRequest\x1a\x16.STwo.ProductsResponse\"\x00\x42\x1f\n\x0eio.grpc.a.stwoB\x04stwoP\x01\xa2\x02\x04SWTOb\x06proto3')
 )
 
 
@@ -33,6 +33,13 @@ _PRODUCTSREQUEST = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='userId', full_name='STwo.ProductsRequest.userId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -46,7 +53,7 @@ _PRODUCTSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=26,
-  serialized_end=43,
+  serialized_end=59,
 )
 
 
@@ -76,8 +83,8 @@ _PRODUCTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=45,
-  serialized_end=100,
+  serialized_start=61,
+  serialized_end=116,
 )
 
 
@@ -135,8 +142,8 @@ _PRODUCT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=102,
-  serialized_end=217,
+  serialized_start=118,
+  serialized_end=233,
 )
 
 
@@ -173,8 +180,8 @@ _DISCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=219,
-  serialized_end=266,
+  serialized_start=235,
+  serialized_end=282,
 )
 
 _PRODUCTSRESPONSE.fields_by_name['listProducts'].message_type = _PRODUCT
@@ -222,8 +229,8 @@ _SERVICETWO = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=268,
-  serialized_end=344,
+  serialized_start=284,
+  serialized_end=360,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProducts',

@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.25.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.25.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.25.0"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -19,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SOne\SOne.csproj" />
+    <Protobuf Include="..\ServiceOneProtos\sone.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>

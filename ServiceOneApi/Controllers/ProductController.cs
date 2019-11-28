@@ -29,7 +29,7 @@ namespace ServiceOneApi.Controllers
             var httpHandler = new HttpClientHandler();
             httpHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             var httpClient = new HttpClient(httpHandler);
-            var channel = GrpcChannel.ForAddress("http://172.17.0.2:50051", new GrpcChannelOptions { HttpClient = httpClient });
+            var channel = GrpcChannel.ForAddress("https://localhost:5001", new GrpcChannelOptions { HttpClient = httpClient });
 
             var client = new ServiceOne.ServiceOneClient(channel);
 

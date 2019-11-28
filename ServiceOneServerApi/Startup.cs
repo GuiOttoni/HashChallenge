@@ -20,10 +20,12 @@ namespace ServiceOneServerApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddGrpc();
             services.AddTransient<ISqlDataContext, SqlDataContext>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IUserService, UserService>();
+
+            services.AddGrpc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +40,7 @@ namespace ServiceOneServerApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<ProductService>();
+                endpoints.MapGrpcService<Services.ProductService>();
 
                 endpoints.MapGet("/", async context =>
                 {

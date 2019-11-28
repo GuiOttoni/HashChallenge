@@ -19,7 +19,8 @@ namespace ServiceOneLib.Impl
         {
             product.Discount = new Discount();
 
-            if (VerifyBirthday(user.BirthDate.ToDateTime().ToLocalTime()))
+
+            if (VerifyBirthday(user.BirthDate?.ToDateTime().ToLocalTime()))
             {
                 product.Discount.Pct = 0.05F;
                 ApplyDiscount(product);
@@ -34,16 +35,16 @@ namespace ServiceOneLib.Impl
                 
         }
 
-        private static bool VerifyBirthday(DateTime birthDate)
+        private static bool VerifyBirthday(DateTime? birthDate)
         {
-            if (DateTime.Now.Day == birthDate.Day && DateTime.Now.Month == birthDate.Month)
+            if (DateTime.Now.Day == birthDate?.Day && DateTime.Now.Month == birthDate?.Month)
                 return true;
             return false;
         }
 
         private static bool VerifyBlackFriday()
         {
-            if (DateTime.Now.Day == 25 && DateTime.Now.Month == 11)
+            if (DateTime.Now.Day == 28 && DateTime.Now.Month == 11)
                 return true;
             return false;
         }

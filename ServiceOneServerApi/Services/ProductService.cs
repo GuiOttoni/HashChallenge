@@ -1,4 +1,5 @@
-﻿using ServiceOneLib.Impl;
+﻿using Grpc.Core;
+using ServiceOneLib.Impl;
 using ServiceOneLib.Services.Interface;
 using Sone;
 using System;

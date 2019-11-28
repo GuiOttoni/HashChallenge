@@ -42,21 +42,26 @@ namespace ServiceOneLib.Database
 
         public async Task<T> SelectSingleAsync<T>(string procedure, Dictionary<string, object> parameters = null)
         {
+            List<T> result = new List<T>();
             try
             {
                 using var connection = new SqlConnection(ConnectionString);
                 await connection.OpenAsync();
                 using SqlCommand command = CreateCommand(connection, procedure, parameters);
                 using SqlDataReader dataReader = await command.ExecuteReaderAsync();
-                var result = await QueryToList<T>(dataReader);
-                return result.FirstOrDefault();
+                {
+                    result = await QueryToList<T>(dataReader);
+                }
             }
             catch (Exception ex)
             {
                 //add log
             }
 
-            return default;
+            if (result.Count > 0)
+                return result.FirstOrDefault();
+
+            return (T)CreateInstance(genericType: typeof(T));
         }
 
         private SqlCommand CreateCommand(SqlConnection connection, string procedure, Dictionary<string, object> keyValuePairs)

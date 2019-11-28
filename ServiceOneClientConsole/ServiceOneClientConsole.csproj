@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
@@ -12,11 +13,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <Protobuf Include="..\ServiceOneProtos\sone.proto" GrpcServices="Client"/>
   </ItemGroup>
 
-  <ItemGroup>
-    <Protobuf Include="..\ServiceOneProtos\sone.proto" GrpcServices="Server"/>
-  </ItemGroup>
-  
 </Project>
