@@ -13,16 +13,16 @@ namespace ServiceOneClientConsole
             var httpHandler = new HttpClientHandler();
             httpHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             var httpClient = new HttpClient(httpHandler);
-            var channel = GrpcChannel.ForAddress("https://localhost:5001", new GrpcChannelOptions { HttpClient = httpClient });
+            var channel = GrpcChannel.ForAddress("https://localhost:443", new GrpcChannelOptions { HttpClient = httpClient });
 
             var client = new ServiceOne.ServiceOneClient(channel);
 
             while (true)
             {
                 Console.WriteLine("product Id");
-                var product = Console.ReadLine();
+                var product = "1";//Console.ReadLine();
                 Console.WriteLine("user Id");
-                var user = Console.ReadLine();
+                var user = "2";//Console.ReadLine();
 
                 var reply = (await Task.Run(() => { return client.ProductDiscount(new ProductRequest { ProductId = product, UserId = user }); }));
                 Console.WriteLine("\n Product:");

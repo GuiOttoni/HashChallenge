@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceOneServerApi", "Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceOneClientConsole", "ServiceOneClientConsole\ServiceOneClientConsole.csproj", "{FC4E5838-1D90-4C5D-A4AD-DB04E2051CEF}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BE38B74D-524F-43D5-97AD-2FE944037AB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +183,26 @@ Global
 		{FC4E5838-1D90-4C5D-A4AD-DB04E2051CEF}.Release|x64.Build.0 = Release|Any CPU
 		{FC4E5838-1D90-4C5D-A4AD-DB04E2051CEF}.Release|x86.ActiveCfg = Release|Any CPU
 		{FC4E5838-1D90-4C5D-A4AD-DB04E2051CEF}.Release|x86.Build.0 = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|x64.Build.0 = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Debug|x86.Build.0 = Debug|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|ARM.Build.0 = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|ARM64.Build.0 = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|x64.ActiveCfg = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|x64.Build.0 = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|x86.ActiveCfg = Release|Any CPU
+		{BE38B74D-524F-43D5-97AD-2FE944037AB6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
