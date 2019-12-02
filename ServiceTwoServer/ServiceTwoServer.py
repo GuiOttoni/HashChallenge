@@ -35,7 +35,7 @@ class ServiceTwo(serviceTwo_pb2_grpc.ServiceTwoServicer):
 
     def GetProducts(self, request, context):
 
-        server = 'tcp:10.0.75.1' 
+        server = 'tcp:172.17.0.1' 
         database = 'Hash' 
         username = 'SA' 
         password = 'teste@123' 
@@ -58,7 +58,7 @@ class ServiceTwo(serviceTwo_pb2_grpc.ServiceTwoServicer):
             product.discount.value_in_cents = 0
 
             try:
-                with grpc.insecure_channel('172.18.0.1:5001') as channel:
+                with grpc.insecure_channel('0.0.0.0:5001') as channel:
                     stub = sone_pb2_grpc.ServiceOneStub(channel)
                     prequest = sone_pb2.ProductRequest()
                     prequest.ProductId = product.Id

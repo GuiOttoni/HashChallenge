@@ -16,19 +16,19 @@ services:
         - "5000:80"
         - "5001:443"
 
-  serviceoneclientconsole:
-    image: ${DOCKER_REGISTRY-}serviceoneclientconsole
-    build:
-      context: .
-      dockerfile: ServiceOneClientConsole/Dockerfile
+  #serviceoneclientconsole:
+  #  image: ${DOCKER_REGISTRY-}serviceoneclientconsole
+  #  build:
+  #    context: .
+  #    dockerfile: ServiceOneClientConsole/Dockerfile
 
-  servicetwoclient:
-    image: ${DOCKER_REGISTRY-}servicetwoclient
-    ports: 
-      - 5555:5555
-    build:
-      context: .
-      dockerfile: ServiceTwoClient/Dockerfile 
+  #servicetwoclient:
+  #  image: ${DOCKER_REGISTRY-}servicetwoclient
+  #  ports: 
+  #    - 5555:5555
+  #  build:
+  #    context: .
+  #    dockerfile: ServiceTwoClient/Dockerfile 
 
   servicetwoserver:
     image: ${DOCKER_REGISTRY-}servicetwoserver

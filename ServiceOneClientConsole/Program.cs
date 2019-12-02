@@ -13,7 +13,7 @@ namespace ServiceOneClientConsole
             var httpHandler = new HttpClientHandler();
             httpHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
             var httpClient = new HttpClient(httpHandler);
-            var channel = GrpcChannel.ForAddress("https://172.18.0.1:5001/", new GrpcChannelOptions { HttpClient = httpClient });
+            var channel = GrpcChannel.ForAddress("https://10.0.75.1:443/", new GrpcChannelOptions { HttpClient = httpClient });
 
             var client = new ServiceOne.ServiceOneClient(channel);
 
