@@ -8,6 +8,7 @@ WORKDIR /src
 COPY ["ServiceOneServerApi/ServiceOneServerApi.csproj", "ServiceOneServerApi/"]
 COPY ["ServiceOneLib/ServiceOneLib.csproj", "ServiceOneLib/"]
 RUN dotnet restore "ServiceOneServerApi/ServiceOneServerApi.csproj"
+RUN dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p teste
 COPY . .
 WORKDIR "/src/ServiceOneServerApi"
 RUN dotnet build "ServiceOneServerApi.csproj" -c Release -o /app/build

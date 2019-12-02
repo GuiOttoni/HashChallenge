@@ -19,7 +19,7 @@ import serviceTwo_pb2_grpc
 def get_products():
   userid = request.headers.get('X-USER-ID')
   #return all products
-  with grpc.insecure_channel('localhost:50051') as channel:
+  with grpc.insecure_channel('localhost:50056') as channel:
         stub = serviceTwo_pb2_grpc.ServiceTwoStub(channel)
         response = stub.GetProducts(serviceTwo_pb2.ProductsRequest(userId = userid))
         response = MessageToDict(response, preserving_proto_field_name = True)

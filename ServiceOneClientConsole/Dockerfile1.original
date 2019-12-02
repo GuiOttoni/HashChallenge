@@ -9,6 +9,7 @@ COPY . .
 WORKDIR "/src/ServiceOneClientConsole"
 RUN dotnet build "ServiceOneClientConsole.csproj" -c Release -o /app/build
 
+
 FROM build AS publish
 RUN dotnet publish "ServiceOneClientConsole.csproj" -c Release -o /app/publish
 

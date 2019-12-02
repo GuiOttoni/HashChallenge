@@ -16,6 +16,7 @@
 from concurrent import futures
 import logging
 import requests
+import sys
 
 import grpc
 import pyodbc 
@@ -57,7 +58,7 @@ class ServiceTwo(serviceTwo_pb2_grpc.ServiceTwoServicer):
             product.discount.value_in_cents = 0
 
             try:
-                with grpc.insecure_channel('localhost:5001') as channel:
+                with grpc.insecure_channel('172.18.0.1:5001') as channel:
                     stub = sone_pb2_grpc.ServiceOneStub(channel)
                     prequest = sone_pb2.ProductRequest()
                     prequest.ProductId = product.Id
@@ -68,6 +69,9 @@ class ServiceTwo(serviceTwo_pb2_grpc.ServiceTwoServicer):
                     product.discount.value_in_cents = response.discount.value_in_cents
             except grpc.RpcError as e:
                 print('ServiceOne failed with {0}: {1}'.format(e.code(), e.details()))
+                print(e)
+            except:
+                print("Unexpected error:", sys.exc_info()[0])
 
             list.append(product)
 
@@ -77,9 +81,11 @@ class ServiceTwo(serviceTwo_pb2_grpc.ServiceTwoServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     serviceTwo_pb2_grpc.add_ServiceTwoServicer_to_server(ServiceTwo(), server)
-    server.add_insecure_port('[::]:50051')
+    server.add_insecure_port('[::]:50056')
     server.start()
+    print("Start server")
     server.wait_for_termination()
+    print("Server running...")
 
 
 if __name__ == '__main__':
