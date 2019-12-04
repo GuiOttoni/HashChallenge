@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   serviceoneserverapi:
-      image: ${DOCKER_REGISTRY-}serviceoneserverapi
+      image: guiottoni/serviceoneserverapi
       build:
         context: .
         dockerfile: ServiceOneServerApi/Dockerfile
@@ -13,8 +13,8 @@ services:
         # Export HTTPS dev certificate as pfx with your own password (directory should match volume below)
         #    dotnet dev-certs https -ep ${APPDATA}/ASP.NET/Https/aspnetapp.pfx -p mypassword
       ports:
-        - "5000:80"
-        - "5001:443"
+        - 5000:80
+        - 5001:443
 
   #serviceoneclientconsole:
   #  image: ${DOCKER_REGISTRY-}serviceoneclientconsole
@@ -22,18 +22,25 @@ services:
   #    context: .
   #    dockerfile: ServiceOneClientConsole/Dockerfile
 
-  #servicetwoclient:
-  #  image: ${DOCKER_REGISTRY-}servicetwoclient
-  #  ports: 
-  #    - 5555:5555
-  #  build:
-  #    context: .
-  #    dockerfile: ServiceTwoClient/Dockerfile 
+  servicetwoclient:
+    image: guiottoni/servicetwoclient
+    ports: 
+      - 5555:5555
+    build:
+      context: .
+      dockerfile: ServiceTwoClient/Dockerfile 
 
   servicetwoserver:
-    image: ${DOCKER_REGISTRY-}servicetwoserver
+    image: guiottoni/servicetwoserver
     ports: 
       - 50056:50056
     build:
       context: .
       dockerfile: ServiceTwoServer/Dockerfile
+
+  mssqlserver:
+    image: guiottoni/hash_database
+    ports: 
+      - 1433:1433
+    build:
+      context: .

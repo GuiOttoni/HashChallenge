@@ -58,7 +58,7 @@ class ServiceTwo(serviceTwo_pb2_grpc.ServiceTwoServicer):
             product.discount.value_in_cents = 0
 
             try:
-                with grpc.insecure_channel('0.0.0.0:5001') as channel:
+                with grpc.insecure_channel('serviceoneserverapi:80') as channel:
                     stub = sone_pb2_grpc.ServiceOneStub(channel)
                     prequest = sone_pb2.ProductRequest()
                     prequest.ProductId = product.Id
